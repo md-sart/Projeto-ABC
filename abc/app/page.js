@@ -7,7 +7,7 @@ export default function Home() {
         
         {/* Logo */}
         <Image
-          src="/lampada.svg" // troque se quiser outro ícone
+          src="/lampada.svg" 
           alt="Logo da Plataforma"
           width={120}
           height={120}
@@ -23,7 +23,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Botões Principais */}
+        { }
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
           <a
             className="rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-md py-3 px-6 font-semibold transition"
@@ -51,7 +51,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Acesso / Login */}
+        { }
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <a
             className="rounded-full bg-yellow-400 hover:bg-yellow-500 text-purple-900 text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
