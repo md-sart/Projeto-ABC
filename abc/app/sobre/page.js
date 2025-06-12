@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import HeaderLP from "../components/HeaderLP";
+import Footer from "../components/Footer";
 
 export default function Sobre() {
   return (
@@ -47,17 +49,15 @@ export default function Sobre() {
         </section>
 
         {/* Link para voltar à Home */}
-        <Link href="/">
-          <a className="mt-12 rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-8 font-semibold transition inline-block">
-            Voltar para a Home
-          </a>
+        <Link
+          href="/"
+          className="mt-12 rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-8 font-semibold transition inline-block"
+        >
+          Voltar para a Home
         </Link>
       </main>
 
-      {/* Rodapé */}
-      <footer className="text-xs text-gray-600 text-center mt-6 py-2">
-        © 2025 Sua Plataforma Educacional e Inclusiva
-      </footer>
+      <Footer />
     </div>
   );
 }
