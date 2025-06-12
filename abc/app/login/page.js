@@ -6,29 +6,35 @@ import Link from "next/link";
 import HeaderLP from "../components/HeaderLP";
 import Footer from "../components/Footer";
 
-export default function Cadastro() {
+export default function Login() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    nome: "",
     email: "",
     senha: "",
-    idade: "",
-    progresso: 0,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "progresso" || name === "idade" ? Number(value) : value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("usuario", JSON.stringify(formData));
-    alert("Conta criada com sucesso! Você está logado.");
-    router.push("/home");
+    const storedUser = JSON.parse(localStorage.getItem("usuario"));
+
+    if (
+      storedUser &&
+      storedUser.email === formData.email &&
+      storedUser.senha === formData.senha
+    ) {
+      alert("Login efetuado com sucesso!");
+      router.push("/home");
+    } else {
+      alert("Email ou senha incorretos!");
+    }
   };
 
   return (
@@ -36,22 +42,9 @@ export default function Cadastro() {
       <HeaderLP />
 
       <main className="flex-grow flex flex-col gap-10 items-center text-center p-6 sm:p-10 max-w-md mx-auto w-full">
-        <h1 className="text-4xl font-bold text-[#703596] mb-6">Cadastro de Novo Jogador</h1>
+        <h1 className="text-4xl font-bold text-[#703596] mb-6">Login do Jogador</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full text-left text-gray-700">
-          <label className="flex flex-col">
-            Nome
-            <input
-              type="text"
-              name="nome"
-              value={formData.nome}
-              onChange={handleChange}
-              required
-              className="mt-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#703596]"
-              placeholder="Seu nome completo"
-            />
-          </label>
-
           <label className="flex flex-col">
             Email
             <input
@@ -74,22 +67,7 @@ export default function Cadastro() {
               onChange={handleChange}
               required
               className="mt-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#703596]"
-              placeholder="Senha segura"
-              minLength={6}
-            />
-          </label>
-
-          <label className="flex flex-col">
-            Idade (opcional)
-            <input
-              type="number"
-              name="idade"
-              value={formData.idade}
-              onChange={handleChange}
-              min={1}
-              max={120}
-              className="mt-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-[#703596]"
-              placeholder="Sua idade"
+              placeholder="Senha"
             />
           </label>
 
@@ -97,14 +75,14 @@ export default function Cadastro() {
             type="submit"
             className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition"
           >
-            Cadastrar
+            Entrar
           </button>
         </form>
 
         <p className="text-sm text-gray-700">
-          Já tem conta?{" "}
-          <Link href="/login" className="text-[#703596] hover:underline">
-            Faça login
+          Ainda não tem conta?{" "}
+          <Link href="/cadastro" className="text-[#703596] hover:underline">
+            Cadastre-se
           </Link>
         </p>
       </main>
