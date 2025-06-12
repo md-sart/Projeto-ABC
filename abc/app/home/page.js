@@ -66,13 +66,13 @@ export default function HomeLogada() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
           <Link
             className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition"
-            href="/desafios/jogo-matematica"
+            href="/jogoMatematica"
           >
             🎯 Jogo de Matemática
           </Link>
           <Link
             className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/desafios/jogo-palavras"
+            href="/jogoPalavras"
           >
             🔤 Jogo de Palavras
           </Link>
@@ -84,7 +84,7 @@ export default function HomeLogada() {
           </Link>
           <Link
             className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/ranking"
+            href="/rankingPessoal"
           >
             🏆 Pódio
           </Link>
