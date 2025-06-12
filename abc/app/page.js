@@ -1,14 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import HeaderLP from "./components/HeaderLP";
+import Footer from "./components/Footer";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 sm:p-10 gap-12 bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 font-sans">
-      <main className="flex flex-col gap-10 row-start-2 items-center text-center">
-        
+    <div className="min-h-screen flex flex-col bg-[#f6f2dc] font-sans">
+      <HeaderLP />
+
+      <main className="flex flex-col gap-10 items-center text-center p-6 sm:p-10">
         {/* Logo */}
         <Image
-          src="/lampada.svg" 
-          alt="Logo da Plataforma"
+          src="/lampada.svg"
+          alt=" "
           width={120}
           height={120}
           priority
@@ -17,60 +24,59 @@ export default function Home() {
 
         {/* Título e Subtítulo */}
         <div>
-          <h1 className="text-4xl font-bold text-purple-800 mb-2">Olá, Duda!</h1>
+          <h1 className="text-4xl font-bold text-[#703596] mb-2">Olá, jogador</h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-md">
             Aprenda de forma divertida com desafios, jogos e atividades personalizadas.
           </p>
         </div>
 
-        { }
+        {/* Botões principais */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
-          <a
-            className="rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-md py-3 px-6 font-semibold transition"
-            href="/desafios"
+          <Link
+            href="/login"
+            className="rounded-xl bg-[#703596] hover:bg-purple-800 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2"
           >
             🎯 Desafios
-          </a>
-          <a
-            className="rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/praticar"
+          </Link>
+          <Link
+            href="/login"
+            className="rounded-xl bg-[#0095d2] hover:bg-blue-700 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2"
           >
             📖 Praticar
-          </a>
-          <a
-            className="rounded-xl bg-red-500 hover:bg-red-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/atividades"
+          </Link>
+          <Link
+            href="/login"
+            className="rounded-xl bg-[#ec2b2a] hover:bg-red-700 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2"
           >
             📝 Atividades
-          </a>
-          <a
-            className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition"
-            href="/podio"
+          </Link>
+          <Link
+            href="/login"
+            className="rounded-xl bg-green-500 hover:bg-green-600 text-white text-md py-3 px-6 font-semibold transition flex items-center gap-2"
           >
-            🏆 Pódio
-          </a>
+            🏆 Ranking
+          </Link>
         </div>
 
-        { }
+        {/* Botões de conta */}
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <a
-            className="rounded-full bg-yellow-400 hover:bg-yellow-500 text-purple-900 text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
+          <Link
             href="/cadastro"
+            className="rounded-full bg-[#f3c916] hover:bg-yellow-400 text-[#703596] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition flex items-center justify-center"
           >
             Cadastre-se
-          </a>
-          <a
-            className="rounded-full border border-purple-600 text-purple-700 hover:bg-purple-100 text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition"
+          </Link>
+
+          <Link
             href="/login"
+            className="rounded-full border border-[#703596] text-[#703596] hover:bg-[#f6f2dc] text-sm sm:text-base h-10 sm:h-12 px-6 font-bold transition flex items-center justify-center"
           >
             Já tenho conta
-          </a>
+          </Link>
         </div>
       </main>
 
-      <footer className="row-start-3 text-xs text-gray-500 text-center mt-4">
-        © 2025 Sua Plataforma Educacional
-      </footer>
+      <Footer />
     </div>
   );
 }
